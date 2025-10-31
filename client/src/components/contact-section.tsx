@@ -10,29 +10,29 @@ const socialPlatforms = [
     icon: "fab fa-spotify",
     color: "green-500",
     description: "Stream our music",
-    href: "#",
+    href: "#"
   },
   {
     name: "YouTube",
     icon: "fab fa-youtube",
     color: "red-500",
     description: "Watch our videos",
-    href: "#",
+    href: "https://www.youtube.com/@TheSixthRiftv2"
   },
   {
     name: "Instagram",
     icon: "fab fa-instagram",
     color: "pink-500",
     description: "Behind the scenes",
-    href: "#",
+    href: "https://www.instagram.com/the.sixthrift?igsh=cDl5dHdnYjdxOGls"
   },
   {
     name: "Discord",
     icon: "fab fa-discord",
     color: "blue-500",
     description: "Join our community",
-    href: "https://discord.gg/NzdfR43h",
-  },
+    href: "https://discord.gg/xNeG8tnPBZ"
+  }
 ];
 
 export default function ContactSection() {
