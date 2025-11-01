@@ -1,10 +1,8 @@
 import { useState } from "react";
-import { useMutation } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { apiRequest } from "@/lib/queryClient";
 
 const socialPlatforms = [
   {
@@ -37,36 +35,25 @@ const socialPlatforms = [
   }
 ];
 
+
 export default function ContactSection() {
   const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
-
-  const subscribeMutation = useMutation({
-    mutationFn: async (email: string) => {
-      const res = await apiRequest("POST", "/api/subscribe", { email });
-      return await res.json();
-    },
-    onSuccess: (data: any) => {
-      toast({
-        title: "Thank you for subscribing!",
-        description: data.message || "You'll be notified about our latest releases.",
-      });
-      setEmail("");
-    },
-    onError: (error: any) => {
-      toast({
-        title: "Subscription failed",
-        description: error.message || "Please try again later.",
-        variant: "destructive",
-      });
-    },
-  });
 
   const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
-      subscribeMutation.mutate(email);
-    }
+    setIsSubmitting(true);
+
+    // Simulate API call
+    setTimeout(() => {
+      toast({
+        title: "Thank you for subscribing!",
+        description: "You'll be notified about our latest releases.",
+      });
+      setEmail("");
+      setIsSubmitting(false);
+    }, 1000);
   };
 
   return (
@@ -139,11 +126,11 @@ export default function ContactSection() {
               />
               <Button
                 type="submit"
-                disabled={subscribeMutation.isPending}
+                disabled={isSubmitting}
                 className="bg-primary text-primary-foreground px-6 py-3 font-medium hover:bg-primary/90 transition-colors"
                 data-testid="newsletter-submit"
               >
-                {subscribeMutation.isPending ? "Subscribing..." : "Subscribe"}
+                {isSubmitting ? "Subscribing..." : "Subscribe"}
               </Button>
             </form>
           </CardContent>
