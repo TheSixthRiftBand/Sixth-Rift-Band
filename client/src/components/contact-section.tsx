@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useMutation } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
+import { apiRequest } from "@/lib/queryClient";
 
 const socialPlatforms = [
   {
@@ -37,22 +39,34 @@ const socialPlatforms = [
 
 export default function ContactSection() {
   const [email, setEmail] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+
+  const subscribeMutation = useMutation({
+    mutationFn: async (email: string) => {
+      const res = await apiRequest("POST", "/api/subscribe", { email });
+      return await res.json();
+    },
+    onSuccess: (data: any) => {
+      toast({
+        title: "Thank you for subscribing!",
+        description: data.message || "You'll be notified about our latest releases.",
+      });
+      setEmail("");
+    },
+    onError: (error: any) => {
+      toast({
+        title: "Subscription failed",
+        description: error.message || "Please try again later.",
+        variant: "destructive",
+      });
+    },
+  });
 
   const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate API call
-    setTimeout(() => {
-      toast({
-        title: "Thank you for subscribing!",
-        description: "You'll be notified about our latest releases.",
-      });
-      setEmail("");
-      setIsSubmitting(false);
-    }, 1000);
+    if (email) {
+      subscribeMutation.mutate(email);
+    }
   };
 
   return (
@@ -125,11 +139,11 @@ export default function ContactSection() {
               />
               <Button
                 type="submit"
-                disabled={isSubmitting}
+                disabled={subscribeMutation.isPending}
                 className="bg-primary text-primary-foreground px-6 py-3 font-medium hover:bg-primary/90 transition-colors"
                 data-testid="newsletter-submit"
               >
-                {isSubmitting ? "Subscribing..." : "Subscribe"}
+                {subscribeMutation.isPending ? "Subscribing..." : "Subscribe"}
               </Button>
             </form>
           </CardContent>
@@ -141,11 +155,11 @@ export default function ContactSection() {
             For collaboration or bookings:
           </p>
           <a
-            href="mailto:thesixthrift@example.com"
+            href="mailto:the.sxith.rift.99@gmail.com"
             className="text-primary hover:text-primary/80 transition-colors font-medium"
             data-testid="contact-email"
           >
-            thesixthrift@example.com
+            the.sxith.rift.99@gmail.com
           </a>
         </div>
       </div>
