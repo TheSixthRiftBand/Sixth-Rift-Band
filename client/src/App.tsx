@@ -7,6 +7,7 @@ import Home from "@/pages/home";
 import AdminSubscribers from "@/pages/admin-subscribers";
 import TrackDetail from "@/pages/track-detail";
 import NotFound from "@/pages/not-found";
+import Bubbles from "@/components/bubbles";
 
 function Router() {
   return (
@@ -23,6 +24,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
+        <Bubbles />
         <Toaster />
         <Router />
       </TooltipProvider>
