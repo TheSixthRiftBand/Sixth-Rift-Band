@@ -31,7 +31,7 @@ export default function Home() {
               </span>
             </div>
             <div className="text-muted-foreground text-sm text-center md:text-right">
-              <p>&copy; 2025 The Sixth Rift. All rights reserved.</p>
+              <p>&copy; 2026 The Sixth Rift. All rights reserved.</p>
               <p className="mt-1">Creating music beyond dimensions</p>
             </div>
           </div>
