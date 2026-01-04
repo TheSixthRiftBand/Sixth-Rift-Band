@@ -1,4 +1,4 @@
-import { Guitar, Mic, MicVocal, Piano, Music, Drum } from "lucide-react"; 
+import { Guitar, Mic, MicVocal, Piano, Music, Drum } from "lucide-react";
 
 const bandMembers = [
   {
@@ -72,7 +72,7 @@ export default function BandMembers() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+        <div className="flex flex-wrap justify-center gap-8 mb-8">
           {bandMembers.map((member, index) => {
             const Icon = member.icon;
             const colorClass =
@@ -85,7 +85,7 @@ export default function BandMembers() {
             return (
               <div
                 key={index}
-                className="bg-card rounded-xl p-6 card-hover border border-border"
+                className="bg-card rounded-xl p-12 card-hover border border-border w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)]"
                 data-testid={`member-card-${member.name.toLowerCase().replace(" ", "-")}`}
               >
                 <div
