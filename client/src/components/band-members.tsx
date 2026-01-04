@@ -1,4 +1,4 @@
-import { Guitar, Mic, MicVocal, Piano, Music, Drum } from "lucide-react";
+import { Guitar, Mic, MicVocal, Piano, Music, Drum } from "lucide-react"; 
 
 const bandMembers = [
   {
