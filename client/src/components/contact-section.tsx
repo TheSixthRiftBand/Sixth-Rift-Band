@@ -157,11 +157,11 @@ export default function ContactSection() {
             For collaboration or bookings:
           </p>
           <a
-            href="mailto:thesixthrift@example.com"
+            href="mailto:the.sxith.rift.99@gmail.com"
             className="text-primary hover:text-primary/80 transition-colors font-medium"
             data-testid="contact-email"
           >
-            thesixthrift@example.com
+            the.sxith.rift.99@gmail.com
           </a>
         </div>
       </div>
