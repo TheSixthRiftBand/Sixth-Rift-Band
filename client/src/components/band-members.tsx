@@ -7,8 +7,10 @@ const bandMembers = [
     instrument: "Guitar",
     icon: Guitar,
     color: "primary",
-    image: "https://plus.unsplash.com/premium_photo-1693169973609-342539dea9dc?ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;fm=jpg&amp;q=60&amp;w=3000",
-    description: "Master of melodies, Vishwajit creates the sonic landscapes that define our dimensional sound."
+    image:
+      "https://plus.unsplash.com/premium_photo-1693169973609-342539dea9dc?ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;fm=jpg&amp;q=60&amp;w=3000",
+    description:
+      "Master of melodies, Vishwajit creates the sonic landscapes that define our dimensional sound.",
   },
   {
     name: "Shraddha Sheri",
@@ -16,8 +18,10 @@ const bandMembers = [
     instrument: "Vocals",
     icon: Mic,
     color: "accent",
-    image: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=200",
-    description: "With ethereal vocals that transport listeners through dimensions, Shraddha is our vocal enchantress."
+    image:
+      "https://images.unsplash.com/photo-1516280440614-37939bbacd81?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=200",
+    description:
+      "With ethereal vocals that transport listeners through dimensions, Shraddha is our vocal enchantress.",
   },
   {
     name: "Rachit Hedau",
@@ -25,8 +29,10 @@ const bandMembers = [
     instrument: "Vocals",
     icon: MicVocal,
     color: "secondary",
-    image: "https://www.thejazzpianosite.com/wp-content/uploads/2018/11/israel-palacio-459693-unsplash-300x200.jpg",
-    description: "Rachit's powerful vocals anchor our cosmic journey, bringing depth and emotion to every track."
+    image:
+      "https://www.thejazzpianosite.com/wp-content/uploads/2018/11/israel-palacio-459693-unsplash-300x200.jpg",
+    description:
+      "Rachit's powerful vocals anchor our cosmic journey, bringing depth and emotion to every track.",
   },
   {
     name: "Kanishka Malankar",
@@ -34,8 +40,10 @@ const bandMembers = [
     instrument: "Keyboards",
     icon: Piano,
     color: "primary",
-    image: "https://i.pinimg.com/236x/b0/f3/52/b0f3529bfdf9ed5417ce296b04d3de18.jpg",
-    description: "Kanishka weaves digital harmonies that open portals to new musical dimensions with every key press."
+    image:
+      "https://i.pinimg.com/236x/b0/f3/52/b0f3529bfdf9ed5417ce296b04d3de18.jpg",
+    description:
+      "Kanishka weaves digital harmonies that open portals to new musical dimensions with every key press.",
   },
   {
     name: "Arav Pawar",
@@ -43,9 +51,11 @@ const bandMembers = [
     instrument: "Tabla",
     icon: Music,
     color: "accent",
-    image: "https://serenademagazine.com/content/images/size/w1200/wp-content/uploads/2023/03/3484668783_b69359235a_o.jpg",
-    description: "Arav bridges ancient rhythms with cosmic beats, creating the heartbeat of our dimensional sound."
-  }
+    image:
+      "https://serenademagazine.com/content/images/size/w1200/wp-content/uploads/2023/03/3484668783_b69359235a_o.jpg",
+    description:
+      "Arav bridges ancient rhythms with cosmic beats, creating the heartbeat of our dimensional sound.",
+  },
 ];
 
 export default function BandMembers() {
@@ -53,33 +63,57 @@ export default function BandMembers() {
     <section id="band" className="py-20 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4">The Rifters</h2>
+          <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
+            The Rifters
+          </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Meet the extraordinary young talents behind the dimensional soundscapes
+            Meet the extraordinary young talents behind the dimensional
+            soundscapes
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
           {bandMembers.map((member, index) => {
             const Icon = member.icon;
-            const colorClass = member.color === 'primary' ? 'border-primary bg-primary/20 text-primary' : 
-                              member.color === 'secondary' ? 'border-secondary bg-secondary/20 text-secondary' :
-                              'border-accent bg-accent/20 text-accent';
-            
+            const colorClass =
+              member.color === "primary"
+                ? "border-primary bg-primary/20 text-primary"
+                : member.color === "secondary"
+                  ? "border-secondary bg-secondary/20 text-secondary"
+                  : "border-accent bg-accent/20 text-accent";
+
             return (
-              <div key={index} className="bg-card rounded-xl p-6 card-hover border border-border" data-testid={`member-card-${member.name.toLowerCase().replace(' ', '-')}`}>
-                <div className={`w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-4 ${member.color === 'primary' ? 'border-primary' : member.color === 'secondary' ? 'border-secondary' : 'border-accent'}`}>
-                  <img src={member.image} alt={`${member.name} portrait`} className="w-full h-full object-cover" />
+              <div
+                key={index}
+                className="bg-card rounded-xl p-6 card-hover border border-border"
+                data-testid={`member-card-${member.name.toLowerCase().replace(" ", "-")}`}
+              >
+                <div
+                  className={`w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-4 ${member.color === "primary" ? "border-primary" : member.color === "secondary" ? "border-secondary" : "border-accent"}`}
+                >
+                  <img
+                    src={member.image}
+                    alt={`${member.name} portrait`}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div className="text-center">
-                  <h3 className="text-xl font-bold text-foreground mb-1" data-testid={`member-name-${member.name.toLowerCase().replace(' ', '-')}`}>
+                  <h3
+                    className="text-xl font-bold text-foreground mb-1"
+                    data-testid={`member-name-${member.name.toLowerCase().replace(" ", "-")}`}
+                  >
                     {member.name}
                   </h3>
-                  <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium mb-3 ${colorClass}`}>
+                  <div
+                    className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium mb-3 ${colorClass}`}
+                  >
                     <Icon size={16} />
                     {member.role}
                   </div>
-                  <p className="text-muted-foreground text-sm leading-relaxed" data-testid={`member-description-${member.name.toLowerCase().replace(' ', '-')}`}>
+                  <p
+                    className="text-muted-foreground text-sm leading-relaxed"
+                    data-testid={`member-description-${member.name.toLowerCase().replace(" ", "-")}`}
+                  >
                     {member.description}
                   </p>
                 </div>
