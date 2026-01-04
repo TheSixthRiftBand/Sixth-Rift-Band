@@ -17,14 +17,14 @@ const socialPlatforms = [
     icon: "fab fa-youtube",
     color: "red-500",
     description: "Watch our videos",
-    href: "#",
+    href: "https://www.youtube.com/@TheSixthRiftv2",
   },
   {
     name: "Instagram",
     icon: "fab fa-instagram",
     color: "pink-500",
     description: "Behind the scenes",
-    href: "#",
+    href: "https://www.instagram.com/the.sixthrift/?igsh=cDl5dHdnYjdxOGls#",
   },
   {
     name: "Discord",
@@ -141,11 +141,11 @@ export default function ContactSection() {
             For collaboration or bookings:
           </p>
           <a
-            href="mailto:the.sixth.rift.99@gmail.com"
+            href="mailto:the.sxith.rift.99@gmail.com"
             className="text-primary hover:text-primary/80 transition-colors font-medium"
             data-testid="contact-email"
           >
-            the.sixth.rift.99@gmail.com
+            the.sxith.rift.99@gmail.com
           </a>
         </div>
       </div>
