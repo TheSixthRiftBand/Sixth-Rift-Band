@@ -10,31 +10,30 @@ const socialPlatforms = [
     icon: "fab fa-spotify",
     color: "green-500",
     description: "Stream our music",
-    href: "#"
+    href: "#",
   },
   {
     name: "YouTube",
     icon: "fab fa-youtube",
     color: "red-500",
     description: "Watch our videos",
-    href: "https://www.youtube.com/@TheSixthRiftv2"
+    href: "#",
   },
   {
     name: "Instagram",
     icon: "fab fa-instagram",
     color: "pink-500",
     description: "Behind the scenes",
-    href: "https://www.instagram.com/the.sixthrift?igsh=cDl5dHdnYjdxOGls"
+    href: "#",
   },
   {
     name: "Discord",
     icon: "fab fa-discord",
     color: "blue-500",
     description: "Join our community",
-    href: "https://discord.gg/xNeG8tnPBZ"
-  }
+    href: "https://discord.gg/NzdfR43h",
+  },
 ];
-
 
 export default function ContactSection() {
   const [email, setEmail] = useState("");
@@ -75,7 +74,7 @@ export default function ContactSection() {
             <a
               key={index}
               href={platform.href}
-              className="bg-card rounded-xl p-6 border border-border card-hover text-center group"
+              className="bg-card rounded-xl p-10 border border-border card-hover text-center group"
               data-testid={`social-link-${platform.name.toLowerCase()}`}
             >
               <div
@@ -103,7 +102,7 @@ export default function ContactSection() {
 
         {/* Newsletter Signup */}
         <Card className="bg-card border border-border">
-          <CardContent className="p-8">
+          <CardContent className="p-12">
             <h3 className="text-2xl font-bold text-foreground mb-4">
               Stay in the Loop
             </h3>
@@ -142,11 +141,11 @@ export default function ContactSection() {
             For collaboration or bookings:
           </p>
           <a
-            href="mailto:the.sxith.rift.99@gmail.com"
+            href="mailto:the.sixth.rift.99@gmail.com"
             className="text-primary hover:text-primary/80 transition-colors font-medium"
             data-testid="contact-email"
           >
-            the.sxith.rift.99@gmail.com
+            the.sixth.rift.99@gmail.com
           </a>
         </div>
       </div>
