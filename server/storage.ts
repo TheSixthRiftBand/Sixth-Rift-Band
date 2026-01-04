@@ -24,7 +24,7 @@ export class MemStorage implements IStorage {
     
     // Seed admin user
     const adminId = randomUUID();
-    this.users.set(adminId, { id: adminId, username: "admin", password: "cosmic-rift-2026" });
+    this.users.set(adminId, { id: adminId, username: "Admin", password: "Rift-2026" });
   }
 
   async getUser(id: string): Promise<User | undefined> {
