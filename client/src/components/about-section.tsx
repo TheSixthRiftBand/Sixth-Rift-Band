@@ -6,7 +6,7 @@ const achievements = [
   { label: "Average Age", value: "12" },
   { label: "Months Creating", value: "6" },
   { label: "Songs in Works", value: "3" }
-];
+]; 
 
 const highlights = [
   {
