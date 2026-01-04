@@ -74,7 +74,7 @@ export default function ContactSection() {
             <a
               key={index}
               href={platform.href}
-              className="bg-card rounded-xl p-10 border border-border card-hover text-center group"
+              className="bg-card rounded-full p-10 border border-border card-hover text-center group"
               data-testid={`social-link-${platform.name.toLowerCase()}`}
             >
               <div
@@ -141,11 +141,11 @@ export default function ContactSection() {
             For collaboration or bookings:
           </p>
           <a
-            href="mailto:the.sxith.rift.99@gmail.com"
+            href="mailto:thesixthrift@example.com"
             className="text-primary hover:text-primary/80 transition-colors font-medium"
             data-testid="contact-email"
           >
-            the.sxith.rift.99@gmail.com
+            thesixthrift@example.com
           </a>
         </div>
       </div>
