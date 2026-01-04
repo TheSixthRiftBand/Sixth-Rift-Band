@@ -1,10 +1,23 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Play, Pause, Clock, Music, SkipForward, Repeat, Shuffle } from "lucide-react";
+import {
+  Play,
+  Pause,
+  Clock,
+  Music,
+  SkipForward,
+  Repeat,
+  Shuffle,
+} from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const tracks = [
   {
@@ -77,7 +90,7 @@ export default function MusicPlayer() {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(227);
   const [isShuffled, setIsShuffled] = useState(false);
-  const [repeatMode, setRepeatMode] = useState<'off' | 'all' | 'one'>('off');
+  const [repeatMode, setRepeatMode] = useState<"off" | "all" | "one">("off");
   const audioRef = useRef<HTMLAudioElement>(null);
 
   const togglePlay = () => {
@@ -119,13 +132,13 @@ export default function MusicPlayer() {
   };
 
   const handleRepeat = () => {
-    const modes: Array<'off' | 'all' | 'one'> = ['off', 'all', 'one'];
+    const modes: Array<"off" | "all" | "one"> = ["off", "all", "one"];
     const currentIndex = modes.indexOf(repeatMode);
     const nextMode = modes[(currentIndex + 1) % modes.length];
     setRepeatMode(nextMode);
-    
+
     if (audioRef.current) {
-      audioRef.current.loop = nextMode === 'one';
+      audioRef.current.loop = nextMode === "one";
     }
   };
 
@@ -143,9 +156,9 @@ export default function MusicPlayer() {
       const handlePause = () => setIsPlaying(false);
       const handlePlay = () => setIsPlaying(true);
       const handleEnded = () => {
-        if (repeatMode === 'off') {
+        if (repeatMode === "off") {
           setIsPlaying(false);
-        } else if (repeatMode === 'all') {
+        } else if (repeatMode === "all") {
           // When multiple tracks exist, this will play the next track
           audio.currentTime = 0;
           audio.play();
@@ -182,7 +195,7 @@ export default function MusicPlayer() {
         </div>
 
         {/* Featured Track - Now Playing */}
-        <div className="bg-gradient-to-br from-card via-card to-primary/5 rounded-3xl p-8 md:p-12 border border-border mb-16 shadow-2xl">
+        <div className="bg-gradient-to-br from-card via-card to-primary/5 rounded-[4rem] p-8 md:p-12 border border-border mb-16 shadow-2xl">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             {/* Album Artwork with Glow Effect */}
             <div className="flex-shrink-0 relative group">
@@ -213,9 +226,7 @@ export default function MusicPlayer() {
               >
                 {tracks[0].title}
               </h3>
-              <p className="text-xl text-primary mb-4">
-                {tracks[0].subtitle}
-              </p>
+              <p className="text-xl text-primary mb-4">{tracks[0].subtitle}</p>
               <p
                 className="text-muted-foreground mb-8 max-w-2xl text-lg leading-relaxed"
                 data-testid="featured-track-description"
@@ -224,10 +235,10 @@ export default function MusicPlayer() {
               </p>
 
               {/* Music Player Controls */}
-              <Card className="bg-muted/30 backdrop-blur-sm border-border/50">
+              <Card className="bg-muted/30 backdrop-blur-sm border-border/50 rounded-[3rem]">
                 <CardContent className="p-6">
                   <audio ref={audioRef} src={tracks[0].audioUrl} />
-                  
+
                   {/* Progress Bar */}
                   <div className="mb-6">
                     <div className="flex items-center justify-between text-sm text-muted-foreground mb-3">
@@ -260,17 +271,21 @@ export default function MusicPlayer() {
                             variant="ghost"
                             size="icon"
                             onClick={handleShuffle}
-                            className={`text-muted-foreground hover:text-foreground transition-colors ${isShuffled ? 'text-primary' : ''}`}
+                            className={`text-muted-foreground hover:text-foreground transition-colors ${isShuffled ? "text-primary" : ""}`}
                             data-testid="shuffle-button"
                           >
                             <Shuffle className="h-4 w-4" />
                           </Button>
                         </TooltipTrigger>
                         <TooltipContent>
-                          <p>{isShuffled ? 'Shuffle is ON - Click to turn off' : 'Shuffle is OFF - Click to shuffle tracks'}</p>
+                          <p>
+                            {isShuffled
+                              ? "Shuffle is ON - Click to turn off"
+                              : "Shuffle is OFF - Click to shuffle tracks"}
+                          </p>
                         </TooltipContent>
                       </Tooltip>
-                      
+
                       <Tooltip>
                         <TooltipTrigger asChild>
                           <Button
@@ -303,7 +318,9 @@ export default function MusicPlayer() {
                           </Button>
                         </TooltipTrigger>
                         <TooltipContent>
-                          <p>{isPlaying ? 'Pause the track' : 'Play the track'}</p>
+                          <p>
+                            {isPlaying ? "Pause the track" : "Play the track"}
+                          </p>
                         </TooltipContent>
                       </Tooltip>
 
@@ -330,20 +347,25 @@ export default function MusicPlayer() {
                             variant="ghost"
                             size="icon"
                             onClick={handleRepeat}
-                            className={`text-muted-foreground hover:text-foreground transition-colors ${repeatMode !== 'off' ? 'text-primary' : ''}`}
+                            className={`text-muted-foreground hover:text-foreground transition-colors ${repeatMode !== "off" ? "text-primary" : ""}`}
                             data-testid="repeat-button"
                           >
                             <Repeat className="h-4 w-4" />
-                            {repeatMode === 'one' && (
-                              <span className="absolute top-1 right-1 text-[10px] font-bold">1</span>
+                            {repeatMode === "one" && (
+                              <span className="absolute top-1 right-1 text-[10px] font-bold">
+                                1
+                              </span>
                             )}
                           </Button>
                         </TooltipTrigger>
                         <TooltipContent>
                           <p>
-                            {repeatMode === 'off' && 'Repeat: OFF - Click to repeat all tracks'}
-                            {repeatMode === 'all' && 'Repeat: ALL - Click to repeat current track'}
-                            {repeatMode === 'one' && 'Repeat: ONE - Click to turn off repeat'}
+                            {repeatMode === "off" &&
+                              "Repeat: OFF - Click to repeat all tracks"}
+                            {repeatMode === "all" &&
+                              "Repeat: ALL - Click to repeat current track"}
+                            {repeatMode === "one" &&
+                              "Repeat: ONE - Click to turn off repeat"}
                           </p>
                         </TooltipContent>
                       </Tooltip>
@@ -370,76 +392,94 @@ export default function MusicPlayer() {
           {upcomingTracks.map((track, index) => (
             <Link key={index} href={`/track/${track.id}`}>
               <Card
-                className="group bg-gradient-to-br from-card to-card/50 border border-border hover:border-primary/50 transition-all duration-300 overflow-hidden card-hover hover:shadow-xl hover:shadow-primary/10 cursor-pointer"
+                className="group bg-gradient-to-br from-card to-card/50 border border-border hover:border-primary/50 transition-all duration-300 overflow-hidden card-hover hover:shadow-xl hover:shadow-primary/10 cursor-pointer rounded-[3rem]"
                 data-testid={`upcoming-track-${track.title.toLowerCase().replace(/\s+/g, "-")}`}
               >
                 <CardContent className="p-0">
                   <div className="flex items-center gap-6 p-6">
-                  {/* Album Artwork */}
-                  <div className="relative flex-shrink-0">
-                    <div className="w-24 h-24 rounded-xl overflow-hidden border-2 border-border group-hover:border-primary/50 transition-all duration-300 shadow-lg transform group-hover:scale-105">
-                      <img
-                        src={track.image}
-                        alt={`${track.title} artwork`}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <Badge 
-                      className={`absolute -top-2 -right-2 ${track.badgeColor} text-white border-0 shadow-lg text-xs`}
-                    >
-                      {track.badge}
-                    </Badge>
-                  </div>
-
-                  {/* Track Info */}
-                  <div className="flex-1 min-w-0">
-                    <h4
-                      className="font-bold text-lg text-foreground mb-1 truncate group-hover:text-primary transition-colors"
-                      data-testid={`track-title-${track.title.toLowerCase().replace(/\s+/g, "-")}`}
-                    >
-                      {track.title}
-                    </h4>
-                    <p className="text-sm text-muted-foreground mb-2">
-                      {track.artist}
-                    </p>
-                    <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                      <span className="flex items-center gap-1">
-                        <Clock className="h-3 w-3" />
-                        {track.duration}
-                      </span>
-                      <span>•</span>
-                      <span
-                        data-testid={`track-status-${track.title.toLowerCase().replace(/\s+/g, "-")}`}
+                    {/* Album Artwork */}
+                    <div className="relative flex-shrink-0">
+                      <div className="w-24 h-24 rounded-xl overflow-hidden border-2 border-border group-hover:border-primary/50 transition-all duration-300 shadow-lg transform group-hover:scale-105">
+                        <img
+                          src={track.image}
+                          alt={`${track.title} artwork`}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <Badge
+                        className={`absolute -top-2 -right-2 ${track.badgeColor} text-white border-0 shadow-lg text-xs`}
                       >
-                        {track.releaseDate}
+                        {track.badge}
+                      </Badge>
+                    </div>
+
+                    {/* Track Info */}
+                    <div className="flex-1 min-w-0">
+                      <h4
+                        className="font-bold text-lg text-foreground mb-1 truncate group-hover:text-primary transition-colors"
+                        data-testid={`track-title-${track.title.toLowerCase().replace(/\s+/g, "-")}`}
+                      >
+                        {track.title}
+                      </h4>
+                      <p className="text-sm text-muted-foreground mb-2">
+                        {track.artist}
+                      </p>
+                      <div className="flex items-center gap-3 text-xs text-muted-foreground">
+                        <span className="flex items-center gap-1">
+                          <Clock className="h-3 w-3" />
+                          {track.duration}
+                        </span>
+                        <span>•</span>
+                        <span
+                          data-testid={`track-status-${track.title.toLowerCase().replace(/\s+/g, "-")}`}
+                        >
+                          {track.releaseDate}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Play Button */}
+                    <Button
+                      size="icon"
+                      className="w-12 h-12 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 opacity-0 group-hover:opacity-100 transform scale-90 group-hover:scale-100"
+                      data-testid={`track-action-${track.title.toLowerCase().replace(/\s+/g, "-")}`}
+                    >
+                      <Play className="h-5 w-5" />
+                    </Button>
+                  </div>
+
+                  {/* Progress bar for upcoming tracks */}
+                  <div className="px-6 pb-4">
+                    <div className="flex items-center justify-between text-xs text-muted-foreground mb-2">
+                      <span>{track.status}</span>
+                      <span className="font-medium">
+                        {index === 0
+                          ? "95%"
+                          : index === 1
+                            ? "70%"
+                            : index === 2
+                              ? "45%"
+                              : "20%"}{" "}
+                        Complete
                       </span>
                     </div>
+                    <div className="w-full bg-border/50 rounded-full h-1.5 overflow-hidden">
+                      <div
+                        className={`h-1.5 rounded-full ${track.badgeColor} transition-all duration-500`}
+                        style={{
+                          width:
+                            index === 0
+                              ? "95%"
+                              : index === 1
+                                ? "70%"
+                                : index === 2
+                                  ? "45%"
+                                  : "20%",
+                        }}
+                      ></div>
+                    </div>
                   </div>
-
-                  {/* Play Button */}
-                  <Button
-                    size="icon"
-                    className="w-12 h-12 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 opacity-0 group-hover:opacity-100 transform scale-90 group-hover:scale-100"
-                    data-testid={`track-action-${track.title.toLowerCase().replace(/\s+/g, "-")}`}
-                  >
-                    <Play className="h-5 w-5" />
-                  </Button>
-                </div>
-
-                {/* Progress bar for upcoming tracks */}
-                <div className="px-6 pb-4">
-                  <div className="flex items-center justify-between text-xs text-muted-foreground mb-2">
-                    <span>{track.status}</span>
-                    <span className="font-medium">{index === 0 ? "95%" : index === 1 ? "70%" : index === 2 ? "45%" : "20%"} Complete</span>
-                  </div>
-                  <div className="w-full bg-border/50 rounded-full h-1.5 overflow-hidden">
-                    <div
-                      className={`h-1.5 rounded-full ${track.badgeColor} transition-all duration-500`}
-                      style={{ width: index === 0 ? "95%" : index === 1 ? "70%" : index === 2 ? "45%" : "20%" }}
-                    ></div>
-                  </div>
-                </div>
-              </CardContent>
+                </CardContent>
               </Card>
             </Link>
           ))}
