@@ -54,6 +54,20 @@ export default function Navigation() {
                 Music
               </button>
               <button
+                onClick={() => scrollToSection("gallery")}
+                className="text-muted-foreground hover:text-primary transition-colors px-3 py-2 text-sm font-medium"
+                data-testid="nav-gallery"
+              >
+                Gallery
+              </button>
+              <button
+                onClick={() => scrollToSection("events")}
+                className="text-muted-foreground hover:text-primary transition-colors px-3 py-2 text-sm font-medium"
+                data-testid="nav-events"
+              >
+                Events
+              </button>
+              <button
                 onClick={() => scrollToSection("about")}
                 className="text-muted-foreground hover:text-primary transition-colors px-3 py-2 text-sm font-medium"
                 data-testid="nav-about"
@@ -108,6 +122,20 @@ export default function Navigation() {
                 data-testid="mobile-nav-music"
               >
                 Music
+              </button>
+              <button
+                onClick={() => scrollToSection("gallery")}
+                className="block text-muted-foreground hover:text-primary transition-colors px-3 py-2 text-sm font-medium w-full text-left"
+                data-testid="mobile-nav-gallery"
+              >
+                Gallery
+              </button>
+              <button
+                onClick={() => scrollToSection("events")}
+                className="block text-muted-foreground hover:text-primary transition-colors px-3 py-2 text-sm font-medium w-full text-left"
+                data-testid="mobile-nav-events"
+              >
+                Events
               </button>
               <button
                 onClick={() => scrollToSection("about")}
