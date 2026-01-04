@@ -12,7 +12,7 @@ const bandMembers = [
   },
   {
     name: "Shraddha Sheri",
-    role: "Female Vocals",
+    role: "Female Vocalist",
     instrument: "Vocals",
     icon: Mic,
     color: "accent",
