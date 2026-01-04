@@ -42,7 +42,7 @@ export default function HeroSection() {
           Where young talent meets infinite possibilities
         </p>
         <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Five extraordinary 12-year-old musicians creating magic through the dimensional rifts of sound
+          Five extraordinary 13-year-old musicians creating magic through the dimensional rifts of sound
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button 
