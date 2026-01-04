@@ -8,12 +8,14 @@ import AdminSubscribers from "@/pages/admin-subscribers";
 import TrackDetail from "@/pages/track-detail";
 import NotFound from "@/pages/not-found";
 import Bubbles from "@/components/bubbles";
+import AdminLogin from "@/pages/admin-login";
+import AdminSubscribers from "@/pages/admin-subscribers";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
-      <Route path="/track/:id" component={TrackDetail} />
+      <Route path="/admin/login" component={AdminLogin} />
       <Route path="/admin/subscribers" component={AdminSubscribers} />
       <Route component={NotFound} />
     </Switch>
