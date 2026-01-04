@@ -44,7 +44,7 @@ export default function AboutSection() {
           <div>
             <div className="rounded-2xl overflow-hidden border-4 border-primary/30">
               <img 
-                src="https://i.pinimg.com/236x/b0/f3/52/b0f3529bfdf9ed5417ce296b04d3de18.jpg" 
+                src="https://plus.unsplash.com/premium_photo-1693169973609-342539dea9dc?ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;fm=jpg&amp;q=60&amp;w=3000" 
                 alt="The Sixth Rift band photo" 
                 className="w-full h-auto"
                 data-testid="band-photo"
