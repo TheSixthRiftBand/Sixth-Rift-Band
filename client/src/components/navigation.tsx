@@ -68,6 +68,13 @@ export default function Navigation() {
                 Events
               </button>
               <button
+                onClick={() => scrollToSection("merch")}
+                className="text-muted-foreground hover:text-primary transition-colors px-3 py-2 text-sm font-medium"
+                data-testid="nav-merch"
+              >
+                Merch
+              </button>
+              <button
                 onClick={() => scrollToSection("about")}
                 className="text-muted-foreground hover:text-primary transition-colors px-3 py-2 text-sm font-medium"
                 data-testid="nav-about"
@@ -136,6 +143,13 @@ export default function Navigation() {
                 data-testid="mobile-nav-events"
               >
                 Events
+              </button>
+              <button
+                onClick={() => scrollToSection("merch")}
+                className="block text-muted-foreground hover:text-primary transition-colors px-3 py-2 text-sm font-medium w-full text-left"
+                data-testid="mobile-nav-merch"
+              >
+                Merch
               </button>
               <button
                 onClick={() => scrollToSection("about")}
